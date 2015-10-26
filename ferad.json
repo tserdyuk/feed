@@ -1,0 +1,17 @@
+{
+  "version": "2.0",
+  "init": "clean -> babel:js -> packager, emulator",
+  "start": "watch:js, install",
+  "emulator": ["emulator -avd Test"],
+  "packager": ["cd native; npm run start -- --root ../target/js"],
+  "install": ["cd native; react-native run-android"],
+  ":js": {
+    "task": "babel",
+    "plumber": false,
+    "src": "src/**/*.js",
+    "dest": "target/js"
+  },
+  "clean": {
+    "dest": "target"
+  }
+}

@@ -1,0 +1,3 @@
+.gradle/
+target/
+npm-debug.log*
