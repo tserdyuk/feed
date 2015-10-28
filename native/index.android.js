@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-var Feed = require('../target/js/android')
+var Feed = require('../target/js/Feed')
 require('react-native').AppRegistry
-    .registerComponent('Feed', () => Feed)
+	.registerComponent('Feed', () => Feed)
