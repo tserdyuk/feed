@@ -3,15 +3,15 @@
   "init": "clean -> babel:js -> packager, emulator",
   "start": "babel:js -> watch:js, install",
   "emulator": ["emulator -avd Test"],
-  "packager": ["cd native; npm run start -- --root ../target/js"],
+  "packager": ["cd native; npm run start"],
   "install": ["cd native; react-native run-android"],
   ":js": {
     "task": "babel:js",
     "plumber": true,
     "src": ["src/**/*.js", "config/**/*.js"],
-    "dest": "target/js"
+    "dest": "native/target"
   },
   "clean": {
-    "dest": "target"
+    "dest": "native/target"
   }
 }
