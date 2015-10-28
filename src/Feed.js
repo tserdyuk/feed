@@ -1,4 +1,5 @@
 import React, { ScrollView, Text, View } from 'react-native'
+import { fetchJSON } from './utils'
 import api from './api'
 
 export default class Feed extends React.Component {
@@ -25,10 +26,4 @@ class Items extends React.Component {
 	renderRow({ date }, index) {
 		return <Text key={index} >{ date }</Text>
 	}
-}
-
-function fetchJSON(url, result) {
-	fetch(url).then(response =>
-		response.json().then(json =>
-			result(json)))
 }

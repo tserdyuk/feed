@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "init": "clean -> babel:js -> packager, emulator",
+  "init": "clean -> babel:js -> packager",
   "start": "babel:js -> watch:js, install",
   "emulator": ["emulator -avd Test"],
   "packager": ["cd native; npm run start"],
