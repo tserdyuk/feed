@@ -1,4 +1,4 @@
-import React, { ListView, Text, View } from 'react-native'
+import React, { ScrollView, Text, View } from 'react-native'
 import api from './api'
 
 export default class Feed extends React.Component {
@@ -9,25 +9,21 @@ export default class Feed extends React.Component {
 	}
 	render() {
 		const { all } = this.state
-		return <View>
+		return <ScrollView>
 			<Text>{ all.length }</Text>
 			<Items items={ all.slice(0, 100) } />
-		</View>
+		</ScrollView>
 	}
 }
 
 class Items extends React.Component {
-	static x = 1
-	ds = new ListView.DataSource({
-		rowHasChanged: (x, y) => x.id != y.id
-	})
 	render() {
-		console.log(this.x)
-		const items = this.ds.cloneWithRows(this.props.items)
-		return <ListView dataSource={items} renderRow={this.renderRow} />
+		return <View>
+			{ this.props.items.map(this.renderRow) }
+		</View>
 	}
-	renderRow({ date }) {
-		return <Text>{ date }</Text>
+	renderRow({ date }, index) {
+		return <Text key={index} >{ date }</Text>
 	}
 }
 
