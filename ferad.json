@@ -1,17 +1,14 @@
 {
   "version": "2.0",
-  "init": "clean -> babel:js -> packager",
-  "start": "babel:js -> watch:js, install",
+  "init": "clean:js -> babel:js -> packager",
+  "start": "babel:js -> watch:js, run",
   "emulator": ["emulator -avd Test"],
   "packager": ["cd native; npm run start"],
-  "install": ["cd native; react-native run-android"],
+  "run": ["cd native; react-native run-android"],
   ":js": {
     "task": "babel:js",
     "plumber": true,
     "src": ["src/**/*.js", "config/**/*.js"],
-    "dest": "native/target"
-  },
-  "clean": {
     "dest": "native/target"
   }
 }
